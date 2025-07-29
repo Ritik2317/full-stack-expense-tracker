@@ -17,9 +17,10 @@ function App() {
         <h2 className="text-lg sm:text-xl font-normal text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10">
           Your smart companion for managing expenses, staying on budget, and achieving financial freedom.
         </h2>
-        <Button className="px-6 py-2 text-lg font-semibold border border-black dark:border-white rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all hover:cursor-pointer hover:scale-105">
-          Sign In / Sign Up
+        <a href='/login'><Button className="px-6 py-2 text-lg font-semibold border border-black dark:border-white rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all hover:cursor-pointer hover:scale-105">
+          Log In / Sign Up
         </Button>
+        </a>
       </main>
     </div>
   )
