@@ -1,10 +1,11 @@
 import AuthLayout from '@/components/layouts/AuthLayout'
 import Input from '@/components/layouts/Input';
 import { Button } from '@/components/ui/button';
+import { UserContext } from '@/context/userContext';
 import { API_PATHS } from '@/utils/apiPaths';
 import axiosInstance from '@/utils/axiosInstance';
 import { validateEmail } from '@/utils/helper';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router';
 
 function Login() {
@@ -12,6 +13,7 @@ function Login() {
   const [password,setPassword] = useState("");
   const [error,setError] = useState(null);
   const navigate = useNavigate();
+  const {updateUser} = useContext(UserContext);
 
   const handleLogin = async(e) =>{
     e.preventDefault();
@@ -34,6 +36,7 @@ function Login() {
       const {token,user} = response?.data;
       if(token){
         localStorage.setItem("token",token);
+        updateUser(user);
         navigate("/dashboard");
       }
     }catch(error){

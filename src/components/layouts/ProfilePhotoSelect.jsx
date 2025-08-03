@@ -41,7 +41,7 @@ function ProfilePhotoSelect({ image, setImage }) {
             src={previewURL}
             alt="Profile"
             className="object-cover w-full h-full"
-          />
+          /> 
         ) : (
           <LuUser className="text-4xl" />
         )}

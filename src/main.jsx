@@ -8,6 +8,7 @@ import Home from './pages/Dashboard/Home';
 import Expense from './pages/Dashboard/Expense';
 import Signup from './pages/Auth/Signup';
 import Login from './pages/Auth/Login';
+import UserProvider from './context/userContext';
 
 
 const router = createBrowserRouter([
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     element: <Income />,
   },
   {
-    path: '/home',
+    path: '/dashboard',
     element: <Home />,
   },
   {
@@ -39,7 +40,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <UserProvider>
     <RouterProvider router={router} />
+    </UserProvider>
   </StrictMode>
 );
 
