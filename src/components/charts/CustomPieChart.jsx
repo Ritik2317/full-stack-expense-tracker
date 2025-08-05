@@ -1,5 +1,12 @@
-import React from 'react'
-import { PieChart, Pie, Tooltip, Legend, Cell, ResponsiveContainer } from "recharts";
+import React from 'react';
+import {
+  PieChart,
+  Pie,
+  Tooltip,
+  Legend,
+  Cell,
+  ResponsiveContainer,
+} from 'recharts';
 import CustomTooltip from './CustomTooltip';
 import CustomLegend from './CustomLegend';
 
@@ -14,7 +21,7 @@ const CustomPieChart = ({ data, colors, label, totalAmount, showTextAnchor }) =>
             nameKey="name"
             cx="50%"
             cy="50%"
-            outerRadius={100} // ⬅️ Reduced from 110 to avoid cutting
+            outerRadius={100}
             innerRadius={70}
             labelLine={false}
           >
@@ -26,7 +33,6 @@ const CustomPieChart = ({ data, colors, label, totalAmount, showTextAnchor }) =>
             ))}
           </Pie>
 
-          {/* Center Text */}
           {showTextAnchor && (
             <>
               <text
@@ -44,12 +50,11 @@ const CustomPieChart = ({ data, colors, label, totalAmount, showTextAnchor }) =>
                 y="50%"
                 dy={16}
                 textAnchor="middle"
-                className="dark:fill-white"
-                fill="#111"
+                fill="#ffffff"
                 fontSize="22"
                 fontWeight="bold"
               >
-                {totalAmount}
+                ₹ {totalAmount}
               </text>
             </>
           )}
@@ -59,7 +64,6 @@ const CustomPieChart = ({ data, colors, label, totalAmount, showTextAnchor }) =>
         </PieChart>
       </ResponsiveContainer>
     </div>
-
   );
 };
 

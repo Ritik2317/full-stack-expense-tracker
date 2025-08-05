@@ -4,19 +4,21 @@ import SideMenu from './SideMenu';
 
 function DashboardLayout({ children, activeMenu }) {
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white flex flex-col">
+    <div className="min-h-screen bg-gray-50 dark:bg-black text-black dark:text-white flex flex-col">
       {/* Navbar */}
       <Navbar activeMenu={activeMenu} />
 
       {/* Main Content */}
       <div className="flex flex-1">
-        {/* Sidebar: visible only for large screens */}
-        <div className="hidden lg:block">
+        {/* Sidebar (for large screens) */}
+        <aside className="hidden lg:block w-64 border-r dark:border-gray-800">
           <SideMenu activeMenu={activeMenu} />
-        </div>
+        </aside>
 
-        {/* Content */}
-        <main className="flex-1 p-6 overflow-auto">{children}</main>
+        {/* Page Content */}
+        <main className="flex-1 p-6 md:p-8 overflow-auto">
+          {children}
+        </main>
       </div>
     </div>
   );
