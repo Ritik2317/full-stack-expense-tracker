@@ -41,7 +41,7 @@ function SideMenu({ activeMenu }) {
           <button
             key={`menu_${index}`}
             onClick={() => handleClick(item.path)}
-            className={`flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium transition-all
+            className={`flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium transition-all hover:cursor-pointer
               ${activeMenu === item.label
                 ? "bg-black text-white dark:bg-white dark:text-black"
                 : "hover:bg-gray-100 dark:hover:bg-gray-900"

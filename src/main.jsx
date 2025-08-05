@@ -10,6 +10,8 @@ import Signup from './pages/Auth/Signup';
 import Login from './pages/Auth/Login';
 import UserProvider from './context/userContext';
 
+// ✅ Add this import
+import { Toaster } from 'sonner';
 
 const router = createBrowserRouter([
   {
@@ -41,8 +43,8 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <UserProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
+      <Toaster richColors position="top-right" closeButton />
     </UserProvider>
   </StrictMode>
 );
-

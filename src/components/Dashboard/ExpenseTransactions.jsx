@@ -4,11 +4,11 @@ import { LuArrowRight } from 'react-icons/lu';
 import TransactionInfoCard from '@/customs/cards/TransactionInfoCard';
 import moment from 'moment';
 
-function RecentIncome({ transactions, onSeeMore }) {
+function ExpenseTransactions({ transactions, onSeeMore }) {
   return (
     <div className="p-6 bg-white dark:bg-gray-900 rounded-xl shadow-md my-8">
       <div className="flex justify-between items-center mb-4">
-        <h5 className="text-lg font-semibold text-gray-800 dark:text-white">Income</h5>
+        <h5 className="text-lg font-semibold text-gray-800 dark:text-white">Expenses</h5>
         <Button
           onClick={onSeeMore}
           className="text-blue-600 hover:underline flex items-center gap-1 hover:cursor-pointer"
@@ -18,14 +18,14 @@ function RecentIncome({ transactions, onSeeMore }) {
       </div>
       <div>
         {Array.isArray(transactions) && transactions.length > 0 ? (
-          transactions.slice(0, 5).map((income) => (
+          transactions.slice(0, 5).map((expense) => (
             <TransactionInfoCard
-              key={income._id}
-              title={income.sources?.name || income.sources || 'Unknown'}
-              icon={income.icon}
-              date={moment(income.date).format("Do MMM YYYY")}
-              amount={income.amount}
-              type="income"
+              key={expense._id}
+              title={expense.category?.name || expense.category || 'Unknown'}
+              icon={expense.icon}
+              date={moment(expense.date).format("Do MMM YYYY")}
+              amount={expense.amount}
+              type="expense"
               hideDeleteBin
             />
           ))
@@ -37,4 +37,4 @@ function RecentIncome({ transactions, onSeeMore }) {
   );
 }
 
-export default RecentIncome;
+export default ExpenseTransactions;
