@@ -10,6 +10,8 @@ import { addThousandSeparator } from '@/utils/helper';
 import { LuHandCoins, LuWalletMinimal } from 'react-icons/lu';
 import RecentTransactions from '@/components/Dashboard/RecentTransactions';
 import FinancialOverview from '@/components/Dashboard/FinancialOverview';
+import ExpenseTransactions from '@/components/Dashboard/ExpenseTransactions';
+import Last30DaysExpenses from '@/components/Dashboard/Last30DaysExpenses';
 
 function Home() {
   useUserAuth();
@@ -66,10 +68,17 @@ function Home() {
           transactions={dashboardData?.recentTransactions}
           onSeeMore={() => navigate("/expense")}
         />
-        <FinancialOverview
+        <FinancialOverview className="max-w-3xl mx-auto mt-8"
           totalBalance = {dashboardData?.totalBalance || 0}
           totalIncome = {dashboardData?.totalIncome || 0}
           totalExpense = {dashboardData?.totalExpense || 0} 
+        />
+        <ExpenseTransactions className="max-w-3xl mx-auto mt-8"
+          transactions={dashboardData?.last30DaysExpenses?.transactions || {}}
+          onSeeMore={()=>navigate("/expense")}
+        />
+        <Last30DaysExpenses
+          data={dashboardData?.last30DaysExpenses?.transactions || {}}
         />
       </div>
     </DashboardLayout>

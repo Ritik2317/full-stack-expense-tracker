@@ -13,3 +13,12 @@ export function addThousandSeparator(num) {
 
   return decimalPart ? `${formattedInteger}.${decimalPart}` : formattedInteger;
 }
+
+export const prepareExpenseBarChartData = (data) => {
+  const safeData = Array.isArray(data) ? data : [];
+  const chartData = safeData.map((item) => ({
+    category: item?.category,
+    amount: item?.amount,
+  }));
+  return chartData;
+};
