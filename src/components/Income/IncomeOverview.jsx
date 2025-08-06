@@ -24,7 +24,7 @@ function IncomeOverview({transactions, onAddIncome}) {
             </div>
             <Button
             onClick={onAddIncome}
-            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md"
+            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md hover:cursor-pointer"
             >
             <LuPlus className="w-4 h-4" />
             Add Income

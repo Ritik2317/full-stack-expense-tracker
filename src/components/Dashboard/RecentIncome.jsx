@@ -22,7 +22,7 @@ function RecentIncome({ transactions, onSeeMore }) {
             <TransactionInfoCard
               key={income._id}
               title={income.sources?.name || income.sources || 'Unknown'}
-              
+              icon={income.icon}
               date={moment(income.date).format("Do MMM YYYY")}
               amount={income.amount}
               type="income"

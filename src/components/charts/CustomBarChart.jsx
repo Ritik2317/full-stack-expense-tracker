@@ -48,7 +48,7 @@ const CustomBarChart = ({ data }) => {
           </BarChart>
         </ResponsiveContainer>
       ) : (
-        <p className="text-red-500 text-center">No data available</p>
+        <p className="text-red-500 text-center"></p>
       )}
     </div>
   );
