@@ -1,10 +1,7 @@
 import AddExpenseForm from '@/components/Expense/AddExpenseForm';
 import ExpenseList from '@/components/Expense/ExpenseList';
 import ExpenseOverview from '@/components/Expense/ExpenseOverview';
-import AddIncomeForm from '@/components/Income/AddIncomeForm';
 import DeleteAlert from '@/components/Income/DeleteAlert';
-import IncomeList from '@/components/Income/IncomeList';
-import IncomeOverview from '@/components/Income/IncomeOverview';
 import DashboardLayout from '@/components/layouts/DashboardLayout'
 import Modal from '@/components/layouts/Modal';
 import { useUserAuth } from '@/hooks/useUserAuth'
@@ -92,7 +89,25 @@ function Expense() {
   };
 
   const handleDownloadExpenseDetails = async()=>{
-
+    try{
+      const response = await axiosInstance.get(API_PATHS.EXPENSE.DOWNLOAD_EXPENSE,
+        {
+          responseType:"blob",
+        }
+      );
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download","expense_details.xlsx");
+      document.body.appendChild(link);
+      link.click();
+      link.parentNode.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      toast.success("Downloaded successfully");
+    }catch(error){
+      console.error("Error downloading expense details.",error);
+      toast.error("Failed to download expense details.");
+    }
   }
   return (
     <DashboardLayout activeMenu="Expense">
